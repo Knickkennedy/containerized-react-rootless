@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Config from "./config.json";
 
 function App() {
+  const environment = Config.ENV;
+  const baseUrl = Config.BASE_URL;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        <p>Environment: {environment}</p>
+        <p>Base Url: {baseUrl}</p>
+      </div>
     </div>
   );
 }
