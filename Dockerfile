@@ -1,5 +1,5 @@
 # Fetching the latest node image on apline linux
-FROM node:alpine AS builder
+FROM docker.io/library/node:alpine AS builder
 
 RUN apk update \
     && apk add jq
@@ -15,7 +15,7 @@ ENV NODE_ENV production
 RUN npm install && npm run build
 
 # Fetching the latest nginx image
-FROM nginx
+FROM docker.io/library/nginx
 
 ENV JSFOLDER=/usr/share/nginx/html/static/js/*.js
 COPY ./nginx.conf /etc/nginx/nginx.conf
